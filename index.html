@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free 2-Day Starter Pack — GymRat Basketball</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0D0B08;
+      --bg2:       #131109;
+      --charcoal:  #1C1A16;
+      --surface:   #201E1A;
+      --orange:    #FF5A00;
+      --orange-d:  #CC4800;
+      --orange-xs: rgba(255,90,0,.06);
+      --white:     #FFFFFF;
+      --lgray:     #C4BAB0;
+      --gray:      #8A7F76;
+      --muted:     #4A4540;
+      --border:    rgba(255,255,255,.06);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+
+    /* ─────────────────────────────────────
+       HEADER
+    ───────────────────────────────────── */
+    .hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 68px; padding: 0 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(13,11,8,.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .hdr-logo { height: 34px; width: auto; }
+    .hdr-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 10px; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--orange);
+      border: 1px solid rgba(255,90,0,.35);
+      padding: 5px 14px;
+    }
+
+    /* ─────────────────────────────────────
+       HERO
+    ───────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 68px;
+      display: grid;
+      grid-template-columns: 52% 48%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 75% at 75% 45%, rgba(255,90,0,.09) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 40% at 10% 85%, rgba(255,90,0,.04) 0%, transparent 55%);
+    }
+
+    .hero-left {
+      padding: 72px 48px 80px 72px;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      position: relative; z-index: 2;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 11px; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: ''; width: 20px; height: 2px;
+      background: var(--orange); flex-shrink: 0;
+    }
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .02em; line-height: .85;
+      margin-bottom: 22px;
+    }
+    .hero-headline .free-word {
+      font-size: clamp(88px, 12.5vw, 168px);
+      color: var(--orange); display: block;
+    }
+    .hero-headline .title-line {
+      font-size: clamp(36px, 4.8vw, 68px);
+      color: var(--white); display: block;
+    }
+    .hero-tagline {
+      font-size: 15px; color: var(--gray);
+      line-height: 1.7; max-width: 400px;
+      margin-bottom: 14px; font-style: italic;
+    }
+    .hero-target {
+      border-left: 3px solid var(--orange);
+      padding: 14px 20px;
+      background: var(--orange-xs);
+      max-width: 400px; margin-bottom: 36px;
+    }
+    .hero-target p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 14px;
+      color: var(--lgray); line-height: 1.55;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: .07em;
+      background: var(--orange); color: var(--white);
+      text-decoration: none; padding: 17px 44px;
+      max-width: 400px; width: 100%; text-align: center;
+      transition: background .2s, transform .15s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary:hover { background: var(--orange-d); transform: translateY(-2px); }
+    .btn-primary:active { transform: none; }
+    .hero-micros {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .hero-micros span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 10px; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      min-height: 620px;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, var(--bg) 0%, rgba(13,11,8,.2) 25%, transparent 45%),
+        linear-gradient(to top, var(--bg) 0%, transparent 30%);
+    }
+
+    /* ─────────────────────────────────────
+       CREDENTIALS BAR
+    ───────────────────────────────────── */
+    .creds {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: var(--surface);
+      border-top: 1px solid rgba(255,90,0,.18);
+      border-bottom: 1px solid var(--border);
+    }
+    .cred {
+      padding: 22px 28px;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .cred:last-child { border-right: none; }
+    .cred-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px; color: var(--orange);
+      letter-spacing: .04em; line-height: 1;
+    }
+    .cred-lbl {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─────────────────────────────────────
+       WHAT YOU GET
+    ───────────────────────────────────── */
+    .wyg {
+      background: var(--bg2);
+      padding: 96px 72px;
+    }
+    .wyg-inner {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 72px; align-items: start;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .sec-h {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .03em; line-height: .9; color: var(--white);
+    }
+    .wyg-left .sec-h {
+      font-size: clamp(44px, 5vw, 66px);
+      margin-bottom: 32px;
+    }
+    .wyg-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 36px; }
+    .wyg-item {
+      display: flex; align-items: stretch;
+      background: var(--charcoal);
+      transition: background .2s;
+      cursor: default;
+    }
+    .wyg-item:hover { background: var(--surface); }
+    .wyg-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px; color: var(--orange); letter-spacing: .04em;
+      width: 54px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-right: 1px solid rgba(255,90,0,.18);
+      padding: 16px 0;
+    }
+    .wyg-body { padding: 16px 20px; }
+    .wyg-body strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 14px;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .wyg-body p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+
+    .wyg-right { position: sticky; top: 92px; }
+    .coach-wrap { position: relative; overflow: hidden; }
+    .coach-wrap img {
+      width: 100%; aspect-ratio: 2/3;
+      object-fit: cover; object-position: center top;
+    }
+    .coach-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,11,8,.85) 0%, transparent 50%);
+    }
+    .coach-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 1; padding: 20px 20px;
+    }
+    .coach-caption .c-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .coach-caption .c-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px; letter-spacing: .06em; color: var(--white);
+    }
+
+    /* ─────────────────────────────────────
+       WHY DIFFERENT
+    ───────────────────────────────────── */
+    .why {
+      background: var(--charcoal);
+      padding: 80px 72px;
+      position: relative; overflow: hidden;
+    }
+    .why::after {
+      content: 'REAL';
+      position: absolute; right: -24px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 18vw, 240px);
+      color: rgba(255,90,0,.045); letter-spacing: .02em;
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .why-inner {
+      position: relative; z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .why-inner .sec-h {
+      font-size: clamp(40px, 5vw, 58px);
+      margin-bottom: 22px;
+    }
+    .why-inner p {
+      font-size: 17px; color: var(--gray); line-height: 1.75;
+    }
+
+    /* ─────────────────────────────────────
+       FORM
+    ───────────────────────────────────── */
+    .form-sec {
+      background: var(--bg);
+      padding: 96px 72px;
+      position: relative; overflow: hidden;
+    }
+    .form-sec::before {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 640px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--orange), transparent);
+    }
+    .form-sec::after {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; height: 380px;
+      background: radial-gradient(ellipse 55% 100% at 50% 0%, rgba(255,90,0,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .form-wrap {
+      position: relative; z-index: 1;
+      max-width: 580px; margin: 0 auto; text-align: center;
+    }
+    .form-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 11px; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .form-eyebrow::before {
+      content: ''; width: 20px; height: 2px;
+      background: var(--orange); flex-shrink: 0;
+    }
+    .form-wrap .sec-h {
+      font-size: clamp(52px, 7vw, 88px);
+      margin-bottom: 10px;
+    }
+    .form-wrap .sec-h em {
+      color: var(--orange); font-style: normal; display: block;
+    }
+    .form-lead {
+      font-size: 16px; color: var(--gray);
+      line-height: 1.65; margin-bottom: 44px;
+    }
+    .form-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      padding: 40px 44px 36px;
+    }
+    .above-form {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: .04em;
+      color: var(--lgray); margin-bottom: 26px; text-align: left;
+    }
+    .f-field { margin-bottom: 16px; }
+    .f-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 6px; text-align: left;
+    }
+    .f-input {
+      width: 100%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif; font-size: 16px;
+      padding: 13px 16px; outline: none;
+      transition: border-color .2s, background .2s;
+      border-radius: 0; -webkit-appearance: none;
+    }
+    .f-input::placeholder { color: var(--muted); }
+    .f-input:focus {
+      border-color: rgba(255,90,0,.5);
+      background: rgba(255,90,0,.03);
+    }
+    .f-note {
+      font-size: 12px; color: var(--muted);
+      margin-top: 5px; text-align: left; font-style: italic;
+    }
+    .f-submit {
+      width: 100%; margin-top: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: .08em;
+      background: var(--orange); color: var(--white);
+      border: none; cursor: pointer; padding: 20px;
+      transition: background .2s, transform .15s;
+    }
+    .f-submit:hover { background: var(--orange-d); transform: translateY(-2px); }
+    .f-submit:active { transform: none; }
+    .f-disclaimer {
+      font-size: 12px; color: var(--muted);
+      line-height: 1.55; margin-top: 14px; text-align: center;
+    }
+
+    /* ─────────────────────────────────────
+       THANK YOU (hidden until submit)
+    ───────────────────────────────────── */
+    #thankyou {
+      display: none;
+      background: var(--bg);
+      min-height: calc(100vh - 68px);
+      padding: 100px 72px;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+    }
+    #thankyou.active { display: flex; }
+    .ty-icon {
+      width: 80px; height: 80px;
+      border: 2px solid var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 36px;
+    }
+    .ty-h {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 7vw, 88px);
+      letter-spacing: .03em; line-height: .88;
+      margin-bottom: 18px;
+    }
+    .ty-h em { color: var(--orange); font-style: normal; display: block; }
+    .ty-p { font-size: 17px; color: var(--gray); line-height: 1.7; max-width: 500px; margin-bottom: 8px; }
+    .ty-spam { font-size: 14px; color: var(--muted); }
+    .ty-tease {
+      margin-top: 44px; padding: 28px 36px;
+      border: 1px solid rgba(255,90,0,.22);
+      background: rgba(255,90,0,.04);
+      max-width: 540px; text-align: left;
+    }
+    .ty-tease-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 10px; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .ty-tease p { font-size: 15px; color: var(--lgray); line-height: 1.65; }
+    .ty-tease strong { color: var(--white); }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+    .foot {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 28px 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .foot img { height: 28px; }
+    .foot p { font-size: 12px; color: var(--muted); }
+
+    /* ─────────────────────────────────────
+       SCROLL REVEALS
+    ───────────────────────────────────── */
+    .rv {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .rv.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hdr { padding: 0 28px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 60px 32px 52px; }
+      .hero-right { height: 460px; }
+      .creds { grid-template-columns: 1fr 1fr; }
+      .cred:nth-child(2) { border-right: none; }
+      .cred:nth-child(1), .cred:nth-child(2) { border-bottom: 1px solid var(--border); }
+      .wyg { padding: 72px 32px; }
+      .wyg-inner { grid-template-columns: 1fr; gap: 48px; }
+      .wyg-right { display: none; }
+      .why { padding: 64px 32px; }
+      .form-sec { padding: 72px 32px; }
+      .form-card { padding: 32px 24px; }
+      .foot { padding: 24px 32px; }
+      #thankyou { padding: 72px 32px; }
+    }
+    @media (max-width: 600px) {
+      .hdr { padding: 0 20px; }
+      .hero-left { padding: 48px 20px 44px; }
+      .hero-right { height: 380px; }
+      .wyg { padding: 60px 20px; }
+      .why { padding: 52px 20px; }
+      .form-sec { padding: 60px 20px; }
+      .form-card { padding: 28px 20px; }
+      .foot { padding: 20px 24px; }
+      #thankyou { padding: 60px 20px; }
+      .ty-tease { padding: 22px 20px; }
+      .creds { grid-template-columns: 1fr; }
+      .cred { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .cred:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════
+     HEADER
+════════════════════════════ -->
+<header class="hdr">
+  <img src="Brand_assets/GRB primary logo.png" alt="GymRat Basketball" class="hdr-logo">
+  <div class="hdr-badge">100% Free</div>
+</header>
+
+<!-- ═══════════════════════════
+     HERO
+════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="eyebrow rv">Small-Town Hoopers</div>
+    <h1 class="hero-headline">
+      <span class="free-word rv">FREE</span>
+      <span class="title-line rv d1">2-Day Solo<br>Hooper Starter</span>
+    </h1>
+    <p class="hero-tagline rv d1">Try the first 2 days of my 30-day plan to become the most skilled player in your area.</p>
+    <div class="hero-target rv d2">
+      <p>Built for 11–18 year old hoopers who feel behind because they don't have a trainer or live in a big city.</p>
+    </div>
+    <a href="#form" class="btn-primary rv d2">Get My Free 2-Day Starter →</a>
+    <div class="hero-micros rv d3">
+      <span>🔒 No Credit Card</span>
+      <span>⚡ Instant Delivery</span>
+      <span>✓ 100% Free</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="Pictures/TREY_SHOOTING .JPG" alt="Trey releasing a three-pointer">
+    <div class="hero-overlay"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     CREDENTIALS BAR
+════════════════════════════ -->
+<div class="creds">
+  <div class="cred rv">
+    <div class="cred-num">5 YRS</div>
+    <div class="cred-lbl">College Basketball</div>
+  </div>
+  <div class="cred rv d1">
+    <div class="cred-num">D1</div>
+    <div class="cred-lbl">3-Point Record Holder</div>
+  </div>
+  <div class="cred rv d2">
+    <div class="cred-num">30</div>
+    <div class="cred-lbl">Day Full Blueprint</div>
+  </div>
+  <div class="cred rv d3">
+    <div class="cred-num">FREE</div>
+    <div class="cred-lbl">Days 1 & 2 Today</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     WHAT YOU GET
+════════════════════════════ -->
+<section class="wyg">
+  <div class="wyg-inner">
+    <div class="wyg-left">
+      <div class="eyebrow rv">What's Inside</div>
+      <h2 class="sec-h rv">WHAT YOU<br>GET TODAY</h2>
+      <div class="wyg-list">
+        <div class="wyg-item rv">
+          <div class="wyg-num">01</div>
+          <div class="wyg-body">
+            <strong>Day 1 &amp; Day 2 Workouts</strong>
+            <p>Straight from the 30 Day Solo Hooper Blueprint — no guessing, no filler.</p>
+          </div>
+        </div>
+        <div class="wyg-item rv d1">
+          <div class="wyg-num">02</div>
+          <div class="wyg-body">
+            <strong>Exact Reps, Drills &amp; Demo Videos</strong>
+            <p>So you know precisely what to do and how to do it — every single drill.</p>
+          </div>
+        </div>
+        <div class="wyg-item rv d2">
+          <div class="wyg-num">03</div>
+          <div class="wyg-body">
+            <strong>Warm-Up &amp; Ball-Handling Routine</strong>
+            <p>A simple routine you can run on any driveway, outdoor court, or open space.</p>
+          </div>
+        </div>
+        <div class="wyg-item rv d3">
+          <div class="wyg-num">04</div>
+          <div class="wyg-body">
+            <strong>Coaching Cues From Trey</strong>
+            <p>Stop doing drills wrong. Get the real corrections that make reps actually count.</p>
+          </div>
+        </div>
+        <div class="wyg-item rv d4">
+          <div class="wyg-num">05</div>
+          <div class="wyg-body">
+            <strong>Preview of the Full 30-Day Plan</strong>
+            <p>See the structure, the detail, and what real training looks like inside the blueprint.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#form" class="btn-primary rv">Send Me the Free Starter →</a>
+    </div>
+    <div class="wyg-right rv">
+      <div class="coach-wrap">
+        <img src="Pictures/TREY_GRB.jpg" alt="Trey coaching on the court">
+        <div class="coach-caption">
+          <div class="c-role">Creator &amp; Head Coach</div>
+          <div class="c-name">Trey — GymRat Basketball</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     WHY DIFFERENT
+════════════════════════════ -->
+<section class="why">
+  <div class="why-inner">
+    <div class="eyebrow rv">Why This Is Different</div>
+    <h2 class="sec-h rv">NOT YOUTUBE.<br>A REAL SYSTEM.</h2>
+    <p class="rv d1">Most players in small towns just copy random YouTube drills. This is the actual first 2 days of a complete 30-day system I used with small-town hoopers to get them college ready. You'll see the structure, the detail, and how much better real training feels.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     OPT-IN FORM
+════════════════════════════ -->
+<section class="form-sec" id="form">
+  <div class="form-wrap">
+    <div class="form-eyebrow rv">Get Instant Access</div>
+    <h2 class="sec-h rv">GET DAY 1<br><em>RIGHT NOW</em></h2>
+    <p class="form-lead rv d1">Enter your info and I'll send Day 1 to your inbox in the next 60 seconds.</p>
+
+    <div class="form-card rv d2">
+      <p class="above-form">Enter your info below to get instant access — 100% free, no strings.</p>
+      <form id="optin-form" onsubmit="handleSubmit(event)" novalidate>
+
+        <div class="f-field">
+          <label class="f-label" for="fname">First Name</label>
+          <input class="f-input" type="text" id="fname" name="fname" placeholder="Your first name" required>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="email">Email Address</label>
+          <input class="f-input" type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="phone">
+            Phone Number
+            <span style="color: var(--muted); font-style: italic; font-weight: 600; text-transform: none; letter-spacing: 0;">&nbsp;(Optional)</span>
+          </label>
+          <input class="f-input" type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          <p class="f-note">So I can text you the workouts link.</p>
+        </div>
+
+        <button type="submit" class="f-submit">SEND ME DAY 1 NOW →</button>
+        <p class="f-disclaimer">No spam. No credit card. Just the workouts. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     THANK YOU
+════════════════════════════ -->
+<section id="thankyou">
+  <div class="ty-icon">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <path d="M9 17l5.5 5.5 10.5-11" stroke="#FF5A00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <h2 class="ty-h">YOU'RE IN.<br><em>CHECK YOUR EMAIL.</em></h2>
+  <p class="ty-p">Day 1 is on its way to your inbox right now.</p>
+  <p class="ty-spam">Don't see it in 5 minutes? Check spam or promotions.</p>
+  <div class="ty-tease">
+    <div class="ty-tease-tag">Coming Up — Watch Your Inbox</div>
+    <p>In a few days I'll open up the <strong>full 30 Day Solo Hooper Blueprint</strong> for Founding Players at a discount. This is the one that gets you college-ready. <strong>Watch your inbox.</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     FOOTER
+════════════════════════════ -->
+<footer class="foot">
+  <img src="Brand_assets/GRB primary logo.png" alt="GymRat Basketball">
+  <p>&copy; 2025 GymRat Basketball &middot; All Rights Reserved</p>
+</footer>
+
+<script>
+  // ── Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // ── Immediately reveal hero elements (above fold)
+  setTimeout(() => {
+    document.querySelectorAll('.hero .rv').forEach(el => el.classList.add('in'));
+  }, 80);
+
+  // ── Form submit → show thank you
+  function handleSubmit(e) {
+    e.preventDefault();
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!fname || !email) return;
+
+    // Hide main page sections
+    ['top', 'form'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    document.querySelector('.hero').style.display = 'none';
+    document.querySelector('.creds').style.display = 'none';
+    document.querySelector('.wyg').style.display = 'none';
+    document.querySelector('.why').style.display = 'none';
+    document.querySelector('.form-sec').style.display = 'none';
+
+    // Show thank you
+    document.getElementById('thankyou').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
